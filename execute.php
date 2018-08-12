@@ -7,7 +7,7 @@ if(!$update)
   exit;
 }
 
-
+/*
 function aggiungi($chatId,$username){
   $fp = fopen("nominativi.txt", "a+");
   if(!$fp) return ("Errore ad aprire il file");
@@ -20,7 +20,7 @@ function aggiungi($chatId,$username){
   } else {
     messaggio("utente già registrato",$chatId);
   }
-}
+} */
 
 function mostra(){
   $percorso = file("nominativi.txt");							//leggere file elenco
