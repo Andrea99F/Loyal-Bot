@@ -51,18 +51,17 @@ $text = isset($message['text']) ? $message['text'] : "";
 
 $text = trim($text);
 
-
-$text = strtolower($text);
-$IDdestinatario = $chatId;
+//$text = strtolower($text);
+$chatId;
 
 
 
 
 
 if (strpos($text, "/tr")===0 ){
-  $text = str_replace("/tr", "", $text);
+//  $text = str_replace("/tr", "", $text);
 //  $text = traduci($text, "en");
-  messaggio($text, $IDdestinatario);
+  messaggio($text, $chatId);
 }
 
 
