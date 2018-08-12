@@ -62,7 +62,7 @@ $risposta = $text . "traduttore 1";
 
 
 
-if (strpos(variabile, "/tr")===0 ){
+if (strpos($risposta, "/tr")===0 ){
   $risposta = str_replace("/tr", "", $risposta);
   messaggio( traduci($risposta, "en"), $IDdestinatario);
 }
