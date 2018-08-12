@@ -15,7 +15,7 @@ $parameters["method"] = "sendMessage";
 echo json_encode($parameters);
 }
 
-
+/*
 function traduci($text,$target="en"){
   
   //api google
@@ -42,7 +42,7 @@ function traduci($text,$target="en"){
   
 }
 
-
+*/
 
 
 //inizio programma
@@ -81,5 +81,3 @@ if (strpos(variabile, "/tr")===0 ){
 
 	
 messaggio($risposta, $IDdestinatario);
-
-
