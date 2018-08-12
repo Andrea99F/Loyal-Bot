@@ -56,8 +56,6 @@ $text = strtolower($text);
 $IDdestinatario = $chatId;
 $risposta = $text . " traduttore 2";
 
-messaggio($risposta, $IDdestinatario);
-messaggio($risposta, $IDdestinatario);
 
 
 
