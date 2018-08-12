@@ -54,9 +54,9 @@ $text = trim($text);
 
 $text = strtolower($text);
 $IDdestinatario = $chatId;
-$risposta = $text . "traduttore 1";
+$risposta = $text . " traduttore 2";
 
-
+messaggio($risposta, $IDdestinatario);
 
 
 
@@ -69,4 +69,4 @@ if (strpos($risposta, "/tr")===0 ){
 
 
 	
-messaggio($risposta, $IDdestinatario);
+
