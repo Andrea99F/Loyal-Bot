@@ -61,7 +61,7 @@ $IDdestinatario = $chatId;
 
 if (strpos($text, "/tr")===0 ){
   $text = str_replace("/tr", "", $text);
-  $text = traduci($text, "en");
+//  $text = traduci($text, "en");
   messaggio($text, $IDdestinatario);
 }
 
