@@ -24,15 +24,15 @@ $IDdestinatario = $chatId;
 $risposta = $text;
 
 
-if(strpos($text, "/start") === 0)
+if($text == "/start")
 {
 	$risposta = "aggiungi";//aggiungi persona all'elenco
 }
-elseif(strpos($text, "/list ") === 0)
+elseif($text == "/list")
 {
 	$risposta = "mostra";//mostra lista
 }
-elseif(strpos($text, "/listcancel")=== 0)
+elseif($text == "/listcancel")
 {
     if ($username == "Andrea99F"){
     $risposta = "cancella";//cancella la lista
