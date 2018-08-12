@@ -15,34 +15,23 @@ $parameters["method"] = "sendMessage";
 echo json_encode($parameters);
 }
 
-/*
+
 function traduci($text,$target="en"){
   
-  //api google
-  # Includes the autoloader for libraries installed with composer
-  require __DIR__ . '/vendor/autoload.php';
-  # Imports the Google Cloud client library
+ //api google
+
   use Google\Cloud\Translate\TranslateClient;
-  # Your Google Cloud Platform project ID
-  $projectId = 'YOUR_PROJECT_ID';
-  # Instantiates a client
-  $translate = new TranslateClient([
-      'projectId' => $projectId
+
+  $translate = new TranslateClient();
+  $result = $translate->translate($text, [
+      'target' => $target,
   ]);
-  # The text to translate
-  # @ $text = $text;
-  # The target language
-  # @ $target = $lenguage;
-  # Translates some text into Russian
-  $translation = $translate->translate($text, [
-      'target' => $target
-  ]);
-  return $translation['text'];
-  //fine api google
+  return("Translation: $result[text]\n");
+ //fine api google
   
 }
 
-*/
+
 
 
 //inizio programma
