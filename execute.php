@@ -47,7 +47,7 @@ elseif($text == "/listcancel")
   } 
 }
 	
-messaggio(risposta,);
+messaggio(risposta,$chatId);
 
 
 function aggiungi(){
