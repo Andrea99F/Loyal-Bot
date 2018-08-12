@@ -16,17 +16,17 @@ echo json_encode($parameters);
 }
 
 
-function traduci($text,$target="en"){
+function traduci($testo,$target="en"){
   
  //api google
 
   use Google\Cloud\Translate\TranslateClient;
 
   $translate = new TranslateClient();
-  $result = $translate->translate($text, [
+  $result = $translate->translate($testo, [
       'target' => $target,
   ]);
-  return("Translation: $result[text]\n");
+  return("Translation: $result[testo]\n");
  //fine api google
   
 }
