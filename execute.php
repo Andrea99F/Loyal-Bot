@@ -8,7 +8,18 @@ if(!$update)
 }
 
 
-function aggiungi(){
+function aggiungi($chatId,$username){
+  $fp = fopen("nominativi.txt", "a+");
+  if(!$fp) return ("Errore ad aprire il file");
+
+  //controlla se nome già presente
+  $a= $chatId . " : " . $username;
+  $b= strpos(mostra(), $a );
+  if ($pos === false) {
+    //aggiungi persona;
+  } else {
+    messaggio("utente già registrato",$chatId);
+  }
 }
 
 function mostra(){
@@ -53,15 +64,20 @@ echo json_encode($parameters);
 
 $message = isset($update['message']) ? $update['message'] : "";
 $messageId = isset($message['message_id']) ? $message['message_id'] : "";
+$userId = isset($message['user']['id']) ? $message['user']['id'] : "";
 $chatId = isset($message['chat']['id']) ? $message['chat']['id'] : "";
 $firstname = isset($message['chat']['first_name']) ? $message['chat']['first_name'] : "";
 $lastname = isset($message['chat']['last_name']) ? $message['chat']['last_name'] : "";
 $username = isset($message['chat']['username']) ? $message['chat']['username'] : "";
 $date = isset($message['date']) ? $message['date'] : "";
 $text = isset($message['text']) ? $message['text'] : "";
+
 $text = trim($text);
 
-
+if ($userId != $chatId) 
+{
+ messaggio($userId, $userId . " ". $chatId);
+}
 
 $text = strtolower($text);
 $IDdestinatario = $chatId;
