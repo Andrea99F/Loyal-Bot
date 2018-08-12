@@ -15,7 +15,7 @@ $parameters["method"] = "sendMessage";
 echo json_encode($parameters);
 }
 
-/*
+
 function traduci($testo,$target){
   
  //api google
@@ -30,7 +30,7 @@ function traduci($testo,$target){
  //fine api google
   
 }
-*/
+
 
 
 
@@ -62,6 +62,7 @@ $risposta = $text . " traduttore 2";
 
 if (strpos($text, "/tr")===0 ){
   $risposta = str_replace("/tr", "", $risposta);
+
   messaggio( traduci($risposta, "en"), $IDdestinatario);
 }
 
