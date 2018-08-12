@@ -2,7 +2,10 @@
 $content = file_get_contents("php://input");
 $update = json_decode($content, true);
 
-
+if(!$update)
+{
+  exit;
+}
 
 
 
@@ -46,10 +49,7 @@ echo json_encode($parameters);
 
 
 
-if(!$update)
-{
-  exit;
-}
+
 
 $message = isset($update['message']) ? $update['message'] : "";
 $messageId = isset($message['message_id']) ? $message['message_id'] : "";
@@ -91,6 +91,6 @@ elseif($text == "/listcancel")
   } 
 }
 	
-messaggio(risposta,$chatId);
+messaggio($risposta,$chatId);
 
 
