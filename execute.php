@@ -8,19 +8,6 @@ if(!$update)
 }
 
 
-function aggiungi($chatId,$username){
-  $fp = fopen("nominativi.txt", "a+");
-  if(!$fp) return ("Errore ad aprire il file");
-
-  //controlla se nome già presente
-  $a= $chatId . " : " . $username;
-  $b= strpos(mostra(), $a );
-  if ($pos === false) {
-    //aggiungi persona;
-  } else {
-    messaggio("utente già registrato",$chatId);
-  }
-
 
 function mostra(){
   $percorso = file("nominativi.txt");							//leggere file elenco
@@ -37,6 +24,25 @@ function mostra(){
     $out = $out . "\n" . $params["user"] . " " . $params["id"] . " " . $params["nome"] . " " . $params["cognome"];
   }
   return $out;
+}
+
+
+function aggiungi($Id, $user, $nome, $cognome){
+  //controlla se nome già presente
+  $a= $Id . " : " . $name;
+  $b= strpos(mostra(), $a );
+  if ($pos === false) 
+    {    
+    $fp = fopen("nominativi.txt", "a");
+    if(!$fp){ 
+      messaggio("Errore nella operazione con il file",$Id);
+    } else {
+      fwrite($fp, "\n" . $Id . " : " . $user . " : " . $nome . " " . $cognome);
+      fclose($fp);
+    }
+  } else { 
+    messaggio("utente già registrato",$Id);
+  }
 }
 
 function cancella(){
@@ -81,7 +87,7 @@ $risposta = $text;
 
 if($text == "/start")
 {
-	$risposta = "aggiungi";//aggiungi persona all'elenco
+	$risposta = aggiungi($chatId,$username,$firstname,$lastname);//aggiungi persona all'elenco
 }
 elseif($text == "/list")
 {
