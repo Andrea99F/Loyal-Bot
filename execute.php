@@ -54,16 +54,15 @@ $text = trim($text);
 
 $text = strtolower($text);
 $IDdestinatario = $chatId;
-$risposta = $text . " traduttore 2";
 
 
 
 
 
 if (strpos($text, "/tr")===0 ){
-  $risposta = str_replace("/tr", "", $risposta);
-
-  messaggio( traduci($risposta, "en"), $IDdestinatario);
+  $text = str_replace("/tr", "", $text);
+  $text = traduci($text, "en");
+  messaggio($text, $IDdestinatario);
 }
 
 
