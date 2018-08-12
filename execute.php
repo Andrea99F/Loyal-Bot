@@ -31,6 +31,7 @@ function aggiungi($user, $Id, $nome, $cognome){
   //controlla se nome già presente
   $a= $Id . " : " . $name;
   $b= strpos(mostra(), $a );
+  messaggio("ciao",$Id);
   if ($pos === false) 
     {    
     $fp = fopen("nominativi.txt", "a");
