@@ -16,7 +16,7 @@ echo json_encode($parameters);
 }
 
 /*
-function traduci($testo,$target="en"){
+function traduci($testo,$target){
   
  //api google
 
@@ -63,6 +63,7 @@ messaggio($risposta, $IDdestinatario);
 
 
 if (strpos($risposta, "/tr")===0 ){
+  messaggio("traduci"), $IDdestinatario);
   $risposta = str_replace("/tr", "", $risposta);
   messaggio( traduci($risposta, "en"), $IDdestinatario);
 }
