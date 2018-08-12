@@ -31,6 +31,7 @@ function mostra(){
 
 function cancella(){
 }
+*/
 
 function messaggio($risp,$Id=$chatId,){
 header("Content-Type: application/json");
@@ -41,7 +42,7 @@ echo json_encode($parameters);
 
 
 
-*/
+
 
 
 
