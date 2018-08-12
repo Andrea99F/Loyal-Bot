@@ -2,6 +2,50 @@
 $content = file_get_contents("php://input");
 $update = json_decode($content, true);
 
+
+
+
+
+function aggiungi(){
+}
+
+function mostra(){
+  $percorso = file("nominativi.txt");							//leggere file elenco
+  $out="";
+  while(list(,$value) = each($percorso)){
+    list($user, $id, $nome, $cognome) = split("[:]", $value);
+  
+    #Usiamo trim() per eliminare eventuali spazi vuoti
+    $params["user"] = trim($user);
+    $params["id"] = trim($id); 
+    $params["nome"] = trim($nome);
+    $params["cognome"] = trim($cognome);
+
+    $out = $out . "\n" . $params["user"] . " " . $params["id"] . " " . $params["nome"] . " " . $params["cognome"];
+  }
+  return $out;
+}
+
+function cancella(){
+}
+
+function messaggio($risposta,$Id=$chatId,){
+header("Content-Type: application/json");
+$parameters = array('chat_id' => $Id, "text" => $risposta);
+$parameters["method"] = "sendMessage";
+echo json_encode($parameters);
+}
+
+
+
+
+
+
+
+
+
+
+
 if(!$update)
 {
   exit;
@@ -50,35 +94,3 @@ elseif($text == "/listcancel")
 messaggio(risposta,$chatId);
 
 
-function aggiungi(){
-}
-
-
-function mostra(){
-  $percorso = file("nominativi.txt");							//leggere file elenco
-  $out="";
-  while(list(,$value) = each($percorso)){
-    list($user, $id, $nome, $cognome) = split("[:]", $value);
-  
-    #Usiamo trim() per eliminare eventuali spazi vuoti
-    $params["user"] = trim($user);
-    $params["id"] = trim($id); 
-    $params["nome"] = trim($nome);
-    $params["cognome"] = trim($cognome);
-
-    $out = $out . "\n" . $params["user"] . " " . $params["id"] . " " . $params["nome"] . " " . $params["cognome"];
-  }
-  return $out;
-}
-
-
-function cancella(){
-}
-
-
-function messaggio($risposta,$Id=$chatId,){
-header("Content-Type: application/json");
-$parameters = array('chat_id' => $Id, "text" => $risposta);
-$parameters["method"] = "sendMessage";
-echo json_encode($parameters);
-}
