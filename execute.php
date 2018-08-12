@@ -45,7 +45,7 @@ echo json_encode($parameters);
 
 
 
-
+//inizio programma
 
 
 
@@ -91,6 +91,9 @@ elseif($text == "/listcancel")
   } 
 }
 	
-messaggio($risposta,$chatId);
+header("Content-Type: application/json");
+$parameters = array('chat_id' => $chatId, "text" => $risposta);
+$parameters["method"] = "sendMessage";
+echo json_encode($parameters);
 
 
