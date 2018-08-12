@@ -8,61 +8,6 @@ if(!$update)
 }
 
 
-
-function mostra(){
-  $percorso = file("nominativi.txt");							//leggere file elenco
-  $out="";
-  while(list(,$value) = each($percorso)){
-    list($user, $id, $nome, $cognome) = split("[:]", $value);
-  
-    #Usiamo trim() per eliminare eventuali spazi vuoti
-    $params["user"] = trim($user);
-    $params["id"] = trim($id); 
-    $params["nome"] = trim($nome);
-    $params["cognome"] = trim($cognome);
-
-    $out = $out . "\n" . $params["user"] . " " . $params["id"] . " " . $params["nome"] . " " . $params["cognome"];
-  }
-  return $out;
-}
-
-
-function aggiungi($user, $Id, $nome, $cognome){
-  //controlla se nome già presente
-  $a= $Id . " : " . $name;
-  $b= strpos(mostra(), $a );
-  messaggio("ciao",$Id);
-  if ($pos === false) 
-    {    
-    $fp = fopen("nominativi.txt", "a");
-    if(!$fp){ 
-      messaggio("Errore nella operazione con il file",$Id);
-    } else {
-      $f="\n " . $user . " : " . $Id . " : " . $nome . " " . $cognome;
-      messaggio($f,$Id);
-      fwrite($fp, $f);
-      fclose($fp);
-      messaggio("benvenuto",$Id);
-    }
-  } else { 
-    messaggio("bentornato",$Id);
-  }
-}
-
-function cancella(){
-  $fp = fopen("nominativi.txt", "w");
-  if(!$fp){ 
-    messaggio("Errore nella operazione con il file",$Id);
-  } else {
-    $f=$user . " : " . $Id . " : " . $nome . " " . $cognome;
-    messaggio($f,$Id);
-    fwrite($fp, $f);
-    fclose($fp);
-    messaggio("elenco cancellato",$Id);
-  }
-}
-
-
 function messaggio($risp, $Id){
 header("Content-Type: application/json");
 $parameters = array('chat_id' => $Id, "text" => $risp);
@@ -71,7 +16,31 @@ echo json_encode($parameters);
 }
 
 
-
+function traduci($text,$target="en"){
+  
+  //api google
+  # Includes the autoloader for libraries installed with composer
+  require __DIR__ . '/vendor/autoload.php';
+  # Imports the Google Cloud client library
+  use Google\Cloud\Translate\TranslateClient;
+  # Your Google Cloud Platform project ID
+  $projectId = 'YOUR_PROJECT_ID';
+  # Instantiates a client
+  $translate = new TranslateClient([
+      'projectId' => $projectId
+  ]);
+  # The text to translate
+  # @ $text = $text;
+  # The target language
+  # @ $target = $lenguage;
+  # Translates some text into Russian
+  $translation = $translate->translate($text, [
+      'target' => $target
+  ]);
+  return $translation['text'];
+  //fine api google
+  
+}
 
 
 
@@ -96,31 +65,20 @@ $text = trim($text);
 
 $text = strtolower($text);
 $IDdestinatario = $chatId;
-$risposta = $text;
+$risposta = $text . "traduttore 1";
 
 
-if($text == "/start")
-{
-	$risposta = aggiungi($chatId,$username,$firstname,$lastname);//aggiungi persona all'elenco
+
+
+
+
+
+if (strpos(variabile, "/tr")===0 ){
+  $risposta = str_replace("/tr", "", $risposta);
+  messaggio( traduci($risposta, "en"), $IDdestinatario);
 }
-elseif($text == "/list")
-{
-	if ($username == "Andrea99F"){
-    $risposta = mostra();//mostra la lista
-    }
-    else {
-    $risposta = "non sei un amministratore";
-  } 
-}
-elseif($text == "/listcancel")
-{
-    if ($username == "Andrea99F"){
-    $risposta = cancella();//cancella la lista
-    }
-    else {
-    $risposta = "non sei un amministratore";
-  } 
-}
+
+
 	
 messaggio($risposta, $IDdestinatario);
 
