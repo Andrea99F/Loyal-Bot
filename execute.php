@@ -32,9 +32,9 @@ function mostra(){
 function cancella(){
 }
 
-function messaggio($risposta,$Id=$chatId,){
+function messaggio($risp,$Id=$chatId,){
 header("Content-Type: application/json");
-$parameters = array('chat_id' => $Id, "text" => $risposta);
+$parameters = array('chat_id' => $Id, "text" => $risp);
 $parameters["method"] = "sendMessage";
 echo json_encode($parameters);
 }
