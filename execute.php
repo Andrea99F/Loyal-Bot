@@ -64,8 +64,8 @@ messaggio($risposta, $IDdestinatario);
 
 if (strpos($risposta, "/tr")===0 ){
   messaggio("traduci", $IDdestinatario);
-  $risposta = str_replace("/tr", "", $risposta);
-  messaggio( traduci($risposta, "en"), $IDdestinatario);
+  //$risposta = str_replace("/tr", "", $risposta);
+  //messaggio( traduci($risposta, "en"), $IDdestinatario);
 }
 
 
