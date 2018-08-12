@@ -27,7 +27,7 @@ function mostra(){
 }
 
 
-function aggiungi($Id, $user, $nome, $cognome){
+function aggiungi($user, $Id, $nome, $cognome){
   //controlla se nome già presente
   $a= $Id . " : " . $name;
   $b= strpos(mostra(), $a );
@@ -37,7 +37,7 @@ function aggiungi($Id, $user, $nome, $cognome){
     if(!$fp){ 
       messaggio("Errore nella operazione con il file",$Id);
     } else {
-      fwrite($fp, "\n" . $Id . " : " . $user . " : " . $nome . " " . $cognome);
+      fwrite($fp, "\n" . $user . " : " . $Id . " : " . $nome . " " . $cognome);
       fclose($fp);
     }
   } else { 
