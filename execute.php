@@ -33,7 +33,7 @@ function cancella(){
 }
 */
 
-function messaggio($risp,$Id=$chatId){
+function messaggio($risp, $Id){
 header("Content-Type: application/json");
 $parameters = array('chat_id' => $Id, "text" => $risp);
 $parameters["method"] = "sendMessage";
