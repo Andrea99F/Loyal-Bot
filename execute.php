@@ -75,7 +75,7 @@ if($text == "/start")
 elseif($text == "/list")
 {
 	if ($username == "Andrea99F"){
-    $risposta = "mostra()";//mostra la lista
+    $risposta = mostra();//mostra la lista
     }
     else {
     $risposta = "non sei un amministratore";
