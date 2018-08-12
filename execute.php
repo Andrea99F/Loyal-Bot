@@ -38,6 +38,7 @@ function aggiungi($user, $Id, $nome, $cognome){
       messaggio("Errore nella operazione con il file",$Id);
     } else {
       $f="\n " . $user . " : " . $Id . " : " . $nome . " " . $cognome;
+      messaggio($f,$Id);
       fwrite($fp, $f);
       fclose($fp);
       messaggio("benvenuto",$Id);
@@ -53,6 +54,7 @@ function cancella(){
     messaggio("Errore nella operazione con il file",$Id);
   } else {
     $f=$user . " : " . $Id . " : " . $nome . " " . $cognome;
+    messaggio($f,$Id);
     fwrite($fp, $f);
     fclose($fp);
     messaggio("elenco cancellato",$Id);
