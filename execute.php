@@ -52,7 +52,6 @@ $text = isset($message['text']) ? $message['text'] : "";
 $text = trim($text);
 
 //$text = strtolower($text);
-$chatId;
 
 
 
