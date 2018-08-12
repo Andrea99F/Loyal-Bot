@@ -37,15 +37,26 @@ function aggiungi($user, $Id, $nome, $cognome){
     if(!$fp){ 
       messaggio("Errore nella operazione con il file",$Id);
     } else {
-      fwrite($fp, "\n" . $user . " : " . $Id . " : " . $nome . " " . $cognome);
+      $f="\n " . $user . " : " . $Id . " : " . $nome . " " . $cognome;
+      fwrite($fp, $f);
       fclose($fp);
+      messaggio("benvenuto",$Id);
     }
   } else { 
-    messaggio("utente già registrato",$Id);
+    messaggio("bentornato",$Id);
   }
 }
 
 function cancella(){
+  $fp = fopen("nominativi.txt", "w");
+  if(!$fp){ 
+    messaggio("Errore nella operazione con il file",$Id);
+  } else {
+    $f=$user . " : " . $Id . " : " . $nome . " " . $cognome;
+    fwrite($fp, $f);
+    fclose($fp);
+    messaggio("elenco cancellato",$Id);
+  }
 }
 
 
@@ -101,7 +112,7 @@ elseif($text == "/list")
 elseif($text == "/listcancel")
 {
     if ($username == "Andrea99F"){
-    $risposta = "cancella";//cancella la lista
+    $risposta = cancella();//cancella la lista
     }
     else {
     $risposta = "non sei un amministratore";
