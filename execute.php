@@ -7,7 +7,6 @@ if(!$update)
   exit;
 }
 
-/*
 
 function aggiungi(){
 }
@@ -31,7 +30,7 @@ function mostra(){
 
 function cancella(){
 }
-*/
+
 
 function messaggio($risp, $Id){
 header("Content-Type: application/json");
@@ -92,9 +91,6 @@ elseif($text == "/listcancel")
   } 
 }
 	
-header("Content-Type: application/json");
-$parameters = array('chat_id' => $chatId, "text" => $risposta);
-$parameters["method"] = "sendMessage";
-echo json_encode($parameters);
+messaggio($risposta, $IDdestinatario);
 
 
