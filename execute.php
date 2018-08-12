@@ -42,7 +42,6 @@ elseif(strpos($text, "/listcancel")=== 0)
   } 
 }
 	
-$risposta = "salve";
 
 header("Content-Type: application/json");
 $parameters = array('chat_id' => $chatId, "text" => $risposta);
