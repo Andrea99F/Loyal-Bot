@@ -7,7 +7,7 @@ if(!$update)
   exit;
 }
 
-/*
+
 function aggiungi($chatId,$username){
   $fp = fopen("nominativi.txt", "a+");
   if(!$fp) return ("Errore ad aprire il file");
@@ -20,7 +20,7 @@ function aggiungi($chatId,$username){
   } else {
     messaggio("utente già registrato",$chatId);
   }
-} */
+
 
 function mostra(){
   $percorso = file("nominativi.txt");							//leggere file elenco
@@ -64,7 +64,6 @@ echo json_encode($parameters);
 
 $message = isset($update['message']) ? $update['message'] : "";
 $messageId = isset($message['message_id']) ? $message['message_id'] : "";
-$userId = isset($message['user']['id']) ? $message['user']['id'] : "";
 $chatId = isset($message['chat']['id']) ? $message['chat']['id'] : "";
 $firstname = isset($message['chat']['first_name']) ? $message['chat']['first_name'] : "";
 $lastname = isset($message['chat']['last_name']) ? $message['chat']['last_name'] : "";
@@ -74,10 +73,6 @@ $text = isset($message['text']) ? $message['text'] : "";
 
 $text = trim($text);
 
-if ($userId != $chatId) 
-{
- messaggio($userId, $userId . " ". $chatId);
-}
 
 $text = strtolower($text);
 $IDdestinatario = $chatId;
