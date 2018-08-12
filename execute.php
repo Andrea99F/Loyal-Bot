@@ -62,6 +62,8 @@ if (strpos($text, "/tr")===0 ){
 //  $text = str_replace("/tr", "", $text);
 //  $text = traduci($text, "en");
   messaggio($text, $chatId);
+} else { 
+  messaggio("error", $chatId);
 }
 
 
