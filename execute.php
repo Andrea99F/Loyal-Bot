@@ -46,7 +46,7 @@ $text = trim($text);
 //$text = strtolower($text);
 
 $text = traduci($text, "en");
-messaggio("error", $chatId);
+messaggio($text, $chatId);
 /*
 
 
