@@ -18,7 +18,7 @@ echo json_encode($parameters);
 function traduci($testo,$target,$Id){
   
 $sorgente = implode(file("http://www.inf.uniroma3.it/~patrigna/didactic/imp_elab/esempi_html/esempio_1.html"));
-if (is_null($data)) { return("nessun dato"); }
+if (is_null($sorgente)) { return("nessun dato"); }
 return($sorgente);
 }
 
