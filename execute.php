@@ -20,7 +20,7 @@ function traduci($testo,$target){
 $string = $testo;
 $data = file_get_contents('http://www.example.com/'/*.urlencode($string)*/);
 $data = json_decode($data);
-return $data->src;
+return $data;
   
 }
 
