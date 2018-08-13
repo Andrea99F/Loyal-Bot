@@ -15,9 +15,10 @@ $parameters["method"] = "sendMessage";
 echo json_encode($parameters);
 }
 
-function traduci($testo,$target,$Id){
-  
-$sorgente = implode(file("http://www.inf.uniroma3.it/~patrigna/didactic/imp_elab/esempi_html/esempio_1.html"));
+function traduci(){
+
+$sorgente = file_get_contents("http://www.inf.uniroma3.it/~patrigna/didactic/imp_elab/esempi_html/esempio_1.html");
+//$sorgente = implode(file("http://www.inf.uniroma3.it/~patrigna/didactic/imp_elab/esempi_html/esempio_1.html"));
 if (is_null($sorgente)) { return("nessun dato"); }
 return($sorgente);
 }
@@ -43,7 +44,7 @@ $text = trim($text);
 
 //$text = strtolower($text);
 
-$text = traduci($text, "en", $chatId);
+$text = traduci();
 messaggio($text, $chatId);
 /*
 
