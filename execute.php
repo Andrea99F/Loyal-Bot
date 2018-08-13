@@ -19,7 +19,9 @@ function traduci($testo,$target){
   
 $string = $testo;
 $data = file_get_contents('http://www.example.com/'/*.urlencode($string)*/);
+if (is_null($data)) { messaggio("errore 1", $chatId);}
 $data = json_decode($data);
+if (is_null($data)) { messaggio("errore 2", $chatId);}
 return $data;
   
 }
