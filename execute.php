@@ -18,7 +18,7 @@ echo json_encode($parameters);
 function traduci($testo,$target){
   
 $string = $testo;
-$data = file_get_contents('http://translate.google.com/translate_a/t?client=p&tl=en&ie=UTF-8&oe=UTF-8&text='.urlencode($string));
+$data = file_get_contents('http://www.example.com/'/*.urlencode($string)*/);
 $data = json_decode($data);
 return $data->src;
   
