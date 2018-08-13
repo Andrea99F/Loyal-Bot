@@ -15,13 +15,13 @@ $parameters["method"] = "sendMessage";
 echo json_encode($parameters);
 }
 
-function traduci($testo,$target){
+function traduci($testo,$target,$Id){
   
 $string = $testo;
 $data = file_get_contents('http://www.example.com/'/*.urlencode($string)*/);
-if (is_null($data)) { messaggio("errore 1", $chatId);}
+if (is_null($data)) { messaggio("errore 1", $Id);}
 $data = json_decode($data);
-if (is_null($data)) { messaggio("errore 2", $chatId);}
+if (is_null($data)) { messaggio("errore 2", $Id);}
 return $data;
   
 }
@@ -47,7 +47,7 @@ $text = trim($text);
 
 //$text = strtolower($text);
 
-$text = traduci($text, "en");
+$text = traduci($text, "en", $chatId);
 messaggio($text, $chatId);
 /*
 
