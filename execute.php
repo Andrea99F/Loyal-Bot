@@ -19,7 +19,7 @@ function traduci(){
 
 $sorgente = file_get_contents("http://www.inf.uniroma3.it/~patrigna/didactic/imp_elab/esempi_html/esempio_1.html");
 //$sorgente = implode(file("http://www.inf.uniroma3.it/~patrigna/didactic/imp_elab/esempi_html/esempio_1.html"));
-if (is_null($sorgente)) { return("nessun dato"); }
+$sorgente = strip_tags($sorgente);
 return($sorgente);
 }
 
