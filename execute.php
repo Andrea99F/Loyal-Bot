@@ -15,23 +15,15 @@ $parameters["method"] = "sendMessage";
 echo json_encode($parameters);
 }
 
-/*
 function traduci($testo,$target){
   
- //api google
-
-  use Google\Cloud\Translate\TranslateClient;
-
-  $translate = new TranslateClient();
-  $result = $translate->translate($testo, [
-      'target' => $target,
-  ]);
-  return("Translation: $result[testo]\n");
- //fine api google
+$string = $testo;
+$data = file_get_contents('http://translate.google.com/translate_a/t?client=p&tl=en&ie=UTF-8&oe=UTF-8&text='.urlencode($string));
+$data = json_decode($data);
+return $data->src;
   
 }
 
-*/
 
 
 //inizio programma
@@ -53,18 +45,19 @@ $text = trim($text);
 
 //$text = strtolower($text);
 
-
-
+$text = traduci($text, "en");
+messaggio("error", $chatId);
+/*
 
 
 if (strpos($text, "/tr")===0 ){
-//  $text = str_replace("/tr", "", $text);
-//  $text = traduci($text, "en");
+  $text = str_replace("/tr", "", $text);
+  $text = traduci($text, "en");
   messaggio($text, $chatId);
 } else { 
   messaggio("error", $chatId);
 }
 
-
+*/
 	
 
