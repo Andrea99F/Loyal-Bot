@@ -17,13 +17,9 @@ echo json_encode($parameters);
 
 function traduci($testo,$target,$Id){
   
-$string = $testo;
-$data = file_get_contents('http://www.example.com/'/*.urlencode($string)*/);
-if (is_null($data)) { messaggio("errore 1", $Id);}
-$data = json_decode($data);
-if (is_null($data)) { messaggio("errore 2", $Id);}
-return $data;
-  
+$sorgente = implode(file("http://www.inf.uniroma3.it/~patrigna/didactic/imp_elab/esempi_html/esempio_1.html"));
+if (is_null($data)) { return("nessun dato"); }
+return($sorgente);
 }
 
 
