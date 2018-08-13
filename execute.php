@@ -17,7 +17,7 @@ echo json_encode($parameters);
 
 function traduci(){
 
-$sorgente = file_get_contents("https://translate.google.it/?hl=it#auto/it/salve");
+$sorgente = file_get_contents("https://www.bing.com/translator/?from=auto&to=en&text=ciao");
 $sorgente = strip_tags($sorgente);
 return($sorgente);
 }
