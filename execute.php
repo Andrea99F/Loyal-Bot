@@ -17,8 +17,7 @@ echo json_encode($parameters);
 
 function traduci(){
 
-$sorgente = file_get_contents("http://www.inf.uniroma3.it/~patrigna/didactic/imp_elab/esempi_html/esempio_1.html");
-//$sorgente = implode(file("http://www.inf.uniroma3.it/~patrigna/didactic/imp_elab/esempi_html/esempio_1.html"));
+$sorgente = file_get_contents("https://translate.google.it/?hl=it#auto/it/salve");
 $sorgente = strip_tags($sorgente);
 return($sorgente);
 }
