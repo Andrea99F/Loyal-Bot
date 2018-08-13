@@ -15,9 +15,9 @@ $parameters["method"] = "sendMessage";
 echo json_encode($parameters);
 }
 
-function traduci(){
+function traduci($url){
 
-$sorgente = file_get_contents("https://www.bing.com/translator/?from=auto&to=en&text=ciao");
+$sorgente = file_get_contents($url);
 $sorgente = strip_tags($sorgente);
 return($sorgente);
 }
@@ -43,7 +43,7 @@ $text = trim($text);
 
 //$text = strtolower($text);
 
-$text = traduci();
+$text = traduci($text);
 messaggio($text, $chatId);
 /*
 
