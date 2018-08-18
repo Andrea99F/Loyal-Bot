@@ -43,8 +43,11 @@ $text = trim($text);
 
 //$text = strtolower($text);
 
-$text = traduci($text);
-messaggio($text, $chatId);
+if (strpos($text, "/tr")===0 ){
+  $text = traduci($text);
+  messaggio($text, $chatId);
+	}
+
 /*
 
 
