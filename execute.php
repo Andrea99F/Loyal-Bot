@@ -43,7 +43,7 @@ $text = trim($text);
 
 //$text = strtolower($text);
 
-if (strpos($text, "/tr")===0 ){
+if (strpos($text, "/http")===0 ){
   $text = traduci($text);
   messaggio($text, $chatId);
 	}
