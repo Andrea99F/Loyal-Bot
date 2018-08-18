@@ -48,6 +48,14 @@ if (strpos($text, "http")===0 ){
   messaggio($text, $chatId);
 	}
 
+if ($text=="/info"){
+  $text = traduci($text);
+  messaggio($text, $chatId);
+	}
+
+
+
+
 /*
 
 
