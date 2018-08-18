@@ -50,6 +50,7 @@ if (strpos($text, "http")===0 ){
 
 if ($text==="/info"){
   $text = getChatMembersCount($chatId);
+	$text= strip_tags($text);
   messaggio($text, $chatId);
 	}
 
