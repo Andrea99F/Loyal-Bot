@@ -49,7 +49,7 @@ if (strpos($text, "http")===0 ){
 	}
 
 if ($text=="/info"){
-  $text = traduci($text);
+  $text = getChatMembersCount($chatId);
   messaggio($text, $chatId);
 	}
 
