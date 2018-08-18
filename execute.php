@@ -48,7 +48,7 @@ if (strpos($text, "http")===0 ){
   messaggio($text, $chatId);
 	}
 
-if ($text=="/info"){
+if ($text==="/info"){
   $text = getChatMembersCount($chatId);
   messaggio($text, $chatId);
 	}
