@@ -58,7 +58,11 @@ if ($text==="/info2"){
 	$text= strip_tags($text);
   messaggio($text, $chatId);
 	}
+if ($text==="/chatId"){
 
+	
+messaggio($chatId, $chatId);
+	}
 
 
 /*
