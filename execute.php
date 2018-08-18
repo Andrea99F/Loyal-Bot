@@ -48,12 +48,16 @@ if (strpos($text, "http")===0 ){
   messaggio($text, $chatId);
 	}
 
-if ($text==="/info"){
+if ($text==="/info1"){
   $text = getChatMembersCount($chatId);
 	$text= strip_tags($text);
   messaggio($text, $chatId);
 	}
-
+if ($text==="/info2"){
+  $text = getChatMember($chatId, $username);
+	$text= strip_tags($text);
+  messaggio($text, $chatId);
+	}
 
 
 
