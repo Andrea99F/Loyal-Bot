@@ -54,7 +54,7 @@ if ($text==="/info1"){
   messaggio($text, $chatId);
 	}
 if ($text==="/info2"){
-  $text = getChatMember($chatId, $username);
+  $text =file_get_contents("https://api.telegram.org/bot610084141:AAGcMMfHzHWx7v0Ru8Y_CZqc6-aHz3mrhEg/getChatMember?chat_id=".$chatId);
 	$text= strip_tags($text);
   messaggio($text, $chatId);
 	}
