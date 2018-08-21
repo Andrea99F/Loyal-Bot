@@ -2,27 +2,13 @@
 $content = file_get_contents("php://input");
 $update = json_decode($content, true);
 
+$token = "";
+$api="";
+
 if(!$update)
 {
   exit;
 }
-
-
-function messaggio($risp, $Id){
-header("Content-Type: application/json");
-$parameters = array('chat_id' => $Id, "text" => $risp);
-$parameters["method"] = "sendMessage";
-echo json_encode($parameters);
-}
-
-function traduci($url){
-
-$sorgente = file_get_contents($url);
-$sorgente = strip_tags($sorgente);
-return($sorgente);
-}
-
-
 
 //inizio programma
 
@@ -33,49 +19,20 @@ return($sorgente);
 $message = isset($update['message']) ? $update['message'] : "";
 $messageId = isset($message['message_id']) ? $message['message_id'] : "";
 $chatId = isset($message['chat']['id']) ? $message['chat']['id'] : "";
+$userId = isset($message['user']['id']) ? $message['user']['id'] : "";
 $firstname = isset($message['chat']['first_name']) ? $message['chat']['first_name'] : "";
 $lastname = isset($message['chat']['last_name']) ? $message['chat']['last_name'] : "";
 $username = isset($message['chat']['username']) ? $message['chat']['username'] : "";
 $date = isset($message['date']) ? $message['date'] : "";
 $text = isset($message['text']) ? $message['text'] : "";
-
 $text = trim($text);
 
-//$text = strtolower($text);
+$messaggio = "chat: " . $chatId . "user: ". $userId;
+sendmess($chatId, $messaggio)
 
-if (strpos($text, "http")===0 ){
-  $text = traduci($text);
-  messaggio($text, $chatId);
-	}
 
-if ($text==="/info1"){	
-	$text = file_get_html("https://api.telegram.org/bot610084141:AAGcMMfHzHWx7v0Ru8Y_CZqc6-aHz3mrhEg/getChatMember?chat_id=".$chatId);
-	$text= strip_tags($text);
-	messaggio($text, $chatId);
+function sendmess($chat,$testo)
+{
+	$url = $GLOBALS[api]."/sendmessage?chat_id=" . $chat . "&text=" . urlencode($testo);
+	file_get_contents($url);
 }
-
-if ($text==="/info2"){
-	$text = file_get_contents("https://api.telegram.org/bot610084141:AAGcMMfHzHWx7v0Ru8Y_CZqc6-aHz3mrhEg/getChatMember?chat_id=".$chatId);
-	//$text = json_decode($text, true);
-	$text= strip_tags($text);
-	messaggio($text, $chatId);
-}
-if ($text==="/chatId"){
-	messaggio($chatId, $chatId);
-}
-
-
-/*
-
-
-if (strpos($text, "/tr")===0 ){
-  $text = str_replace("/tr", "", $text);
-  $text = traduci($text, "en");
-  messaggio($text, $chatId);
-} else { 
-  messaggio("error", $chatId);
-}
-
-*/
-	
-
