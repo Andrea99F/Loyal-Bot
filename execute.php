@@ -2,12 +2,19 @@
 $content = file_get_contents("php://input");
 $update = json_decode($content, true);
 
-$token = "";
-$api="";
+$token = "610084141:AAGcMMfHzHWx7v0Ru8Y_CZqc6-aHz3mrhEg";
+$api="https://api.telegram.org/bot".$token;
 
 if(!$update)
 {
   exit;
+}
+
+
+function sendmess($chat,$testo)
+{
+	$url = $GLOBALS[api]."/sendmessage?chat_id=" . $chat . "&text=" . urlencode($testo);
+	file_get_contents($url);
 }
 
 //inizio programma
@@ -31,8 +38,3 @@ $messaggio = "chat: " . $chatId . "user: ". $userId;
 sendmess($chatId, $messaggio);
 
 
-function sendmess($chat,$testo)
-{
-	$url = $GLOBALS[api]."/sendmessage?chat_id=" . $chat . "&text=" . urlencode($testo);
-	file_get_contents($url);
-}
