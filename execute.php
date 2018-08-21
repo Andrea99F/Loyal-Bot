@@ -49,9 +49,11 @@ if (strpos($text, "http")===0 ){
 	}
 
 if ($text==="/info1"){
-  $text = getChatMembersCount($chatId);
-	$text= strip_tags($text);
-  messaggio($text, $chatId);
+
+	
+	$text = file_get_html("https://api.telegram.org/bot610084141:AAGcMMfHzHWx7v0Ru8Y_CZqc6-aHz3mrhEg/getChatMember?chat_id=".$chatId);
+  $text= strip_tags($text);
+	messaggio($text, $chatId);
 	}
 if ($text==="/info2"){
   $text =file_get_contents("https://api.telegram.org/bot610084141:AAGcMMfHzHWx7v0Ru8Y_CZqc6-aHz3mrhEg/getChatMember?chat_id=".$chatId);
