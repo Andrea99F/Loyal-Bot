@@ -28,7 +28,7 @@ $text = isset($message['text']) ? $message['text'] : "";
 $text = trim($text);
 
 $messaggio = "chat: " . $chatId . "user: ". $userId;
-sendmess($chatId, $messaggio)
+sendmess($chatId, $messaggio);
 
 
 function sendmess($chat,$testo)
