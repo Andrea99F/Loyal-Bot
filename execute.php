@@ -48,24 +48,21 @@ if (strpos($text, "http")===0 ){
   messaggio($text, $chatId);
 	}
 
-if ($text==="/info1"){
-
-	
+if ($text==="/info1"){	
 	$text = file_get_html("https://api.telegram.org/bot610084141:AAGcMMfHzHWx7v0Ru8Y_CZqc6-aHz3mrhEg/getChatMember?chat_id=".$chatId);
-  $text= strip_tags($text);
+	$text= strip_tags($text);
 	messaggio($text, $chatId);
-	}
+}
+
 if ($text==="/info2"){
-  $text =file_get_contents("https://api.telegram.org/bot610084141:AAGcMMfHzHWx7v0Ru8Y_CZqc6-aHz3mrhEg/getChatMember?chat_id=".$chatId);
+	$text = file_get_contents("https://api.telegram.org/bot610084141:AAGcMMfHzHWx7v0Ru8Y_CZqc6-aHz3mrhEg/getChatMember?chat_id=".$chatId);
 	//$text = json_decode($text, true);
 	$text= strip_tags($text);
-  messaggio($text, $chatId);
-	}
+	messaggio($text, $chatId);
+}
 if ($text==="/chatId"){
-
-	
-messaggio($chatId, $chatId);
-	}
+	messaggio($chatId, $chatId);
+}
 
 
 /*
