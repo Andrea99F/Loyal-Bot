@@ -30,8 +30,15 @@ $date = isset($message['date']) ? $message['date'] : "";
 $text = isset($message['text']) ? $message['text'] : "";
 $text = trim($text);
 
+if (($text==="/help") ||($text==="/start")){
+	$messaggio = "write /help to know what I can do \n write \report + a text to send a message to developers \n write /info to know what bot recive"
+	sendmess($chatId, $messaggio);
+}
 if ($text==="/info"){
 	$messaggio = json_encode($message, JSON_PRETTY_PRINT);
 	sendmess($chatId, $messaggio);
 }
-
+if (strstr($text,"/report")===0){
+	sendmess($chatId, "report sent");
+	sendmess("420118798", $text);
+}
