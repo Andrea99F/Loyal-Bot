@@ -38,7 +38,7 @@ if ($text==="/info"){
 	$messaggio = json_encode($message, JSON_PRETTY_PRINT);
 	sendmess($chatId, $messaggio);
 } 
-if (strstr($text,"/report")===0){
+if (strpos($text,"/report")===0){
 	sendmess($chatId, "report sent");
 	sendmess("420118798", $text);
 } 
