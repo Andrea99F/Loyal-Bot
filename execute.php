@@ -41,5 +41,5 @@ if ($text==="/info"){
 } 
 if (strpos($text,"/report")===0){
 	sendmess($chatId, "report sent");
-	sendmess("420118798", "chat: " . $chatId . " " . $chatname . "user": $userId . " " . $firstname . " ".  $lastname . " " . $username . "\n" $text);
+	sendmess("420118798", "chat: " . $chatId . " " . $chatname . "user": $userId . " " . $username . "\n" $text);
 } 
