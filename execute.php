@@ -22,6 +22,7 @@ function sendmess($chat,$testo)
 $message = isset($update['message']) ? $update['message'] : "";
 $messageId = isset($message['message_id']) ? $message['message_id'] : "";
 $chatId = isset($message['chat']['id']) ? $message['chat']['id'] : "";
+$chatname = isset($message['chat']['title']) ? $message['chat']['title'] : "";
 $userId = isset($message['from']['id']) ? $message['from']['id'] : "";
 $firstname = isset($message['from']['first_name']) ? $message['from']['first_name'] : "";
 $lastname = isset($message['from']['last_name']) ? $message['from']['last_name'] : "";
@@ -40,5 +41,5 @@ if ($text==="/info"){
 } 
 if (strpos($text,"/report")===0){
 	sendmess($chatId, "report sent");
-	sendmess("420118798", $text);
+	sendmess("420118798", "chat: " . $chatId . " " . $chatname . "user": $userId . " " . $firstname . " ".  $lastname . " " . $username . "\n" $text);
 } 
