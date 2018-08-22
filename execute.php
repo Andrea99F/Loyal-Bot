@@ -34,7 +34,10 @@ $date = isset($message['date']) ? $message['date'] : "";
 $text = isset($message['text']) ? $message['text'] : "";
 $text = trim($text);
 
-$messaggio = json_encode($message, JSON_PRETTY_PRINT);
-sendmess($chatId, $messaggio);
+if ($text==="/info"){
+	$messaggio = json_encode($message, JSON_PRETTY_PRINT);
 
+	sendmess($chatId, $messaggio);
+	
+}
 
