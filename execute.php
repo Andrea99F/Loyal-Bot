@@ -31,7 +31,7 @@ $text = isset($message['text']) ? $message['text'] : "";
 $text = trim($text);
 
 if ($text==="/start"){
-	$messaggio = "write /start to know what I can do \n write \report + a text to send a message to developers \n write /info to know what bot recive";
+	$messaggio = "write /start to know what I can do \nwrite /report + a text to send a message to developers \nwrite /info to know what bot recive";
 	sendmess($chatId, $messaggio);
 } 
 if ($text==="/info"){
